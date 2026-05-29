@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — KIXK Systems Ltd</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f5f5f3; --grey: #888; --border: rgba(245,245,243,0.1); }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); }
+    .nav-logo { text-decoration: none; }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    .page-hero { padding: 10rem 3rem 4rem; border-bottom: 1px solid var(--border); }
+    .page-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.1s forwards; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 0.95; max-width: 800px; opacity: 0; animation: fadeUp 0.8s 0.25s forwards; }
+    .page-hero h1 em { font-style: normal; -webkit-text-stroke: 1px var(--white); color: transparent; }
+
+    section { padding: 6rem 3rem; border-bottom: 1px solid var(--border); }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
+    .section-label::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--grey); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .prose h2 { font-size: clamp(1.75rem, 3vw, 2.75rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 2rem; }
+    .prose p { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.9; color: var(--grey); margin-bottom: 1.5rem; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .stat-item { padding: 2.5rem; border: 1px solid var(--border); }
+    .stat-num { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.75rem; }
+    .stat-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.1em; color: var(--grey); line-height: 1.6; }
+
+    .process-list { display: flex; flex-direction: column; gap: 0; }
+    .process-item { display: grid; grid-template-columns: 4rem 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+    .process-item:first-child { padding-top: 0; }
+    .process-item:last-child { border-bottom: none; }
+    .process-step { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; color: var(--grey); padding-top: 0.25rem; }
+    .process-body h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .process-body p { font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 300; line-height: 1.8; color: var(--grey); }
+
+    .info-list { display: flex; flex-direction: column; gap: 0; }
+    .info-row { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); gap: 2rem; }
+    .info-row:last-child { border-bottom: none; }
+    .info-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--grey); }
+    .info-val { font-weight: 700; font-size: 0.9rem; text-align: right; }
+    .info-val a { color: var(--white); text-decoration: none; transition: opacity 0.2s; }
+    .info-val a:hover { opacity: 0.6; }
+
+    .contract-section { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 3rem; margin-top: 3rem; }
+    .contract-section h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .contract-section p { font-family: 'DM Mono', monospace; font-size: 0.78rem; font-weight: 300; line-height: 1.9; color: var(--grey); margin-bottom: 1rem; }
+    .contract-section p:last-child { margin-bottom: 0; }
+    .contract-section strong { color: var(--white); font-weight: 400; }
+
+    .cta-band { padding: 5rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; border-bottom: 1px solid var(--border); }
+    .cta-band h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; }
+    .btn { display: inline-block; padding: 1rem 2.5rem; background: var(--white); color: var(--black); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s, outline 0.2s; white-space: nowrap; }
+    .btn:hover { background: transparent; color: var(--white); outline: 1px solid var(--white); }
+    .btn-ghost { background: transparent; color: var(--white); outline: 1px solid rgba(255,255,255,0.3); }
+    .btn-ghost:hover { background: var(--white); color: var(--black); outline: 1px solid var(--white); }
+
+    footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-left { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; color: var(--grey); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      section { padding: 4rem 1.5rem; }
+      .two-col { grid-template-columns: 1fr; gap: 3rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .cta-band { padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-text">KIXK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-tag">About the Practice</p>
+    <h1>Security that's<br/><em>direct.</em><br/>No layers.</h1>
+  </div>
+
+  <section>
+    <div class="two-col">
+      <div class="prose">
+        <p class="section-label">Who We Are</p>
+        <h2>A boutique security practice. Nothing more.</h2>
+        <p>KIXK Systems Ltd is a specialist digital security consultancy registered in England and Wales, built specifically around the needs of UK professional services firms — not enterprise clients, not government contracts.</p>
+        <p>We exist because most small law firms, accountancy practices, and recruitment agencies have genuine, measurable security gaps that a generalist IT company will never prioritise. We do nothing else.</p>
+        <p>Every engagement is handled directly. You are never passed to a junior analyst or an offshore team. The person who assessed your domain is the person who fixes it.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <p class="stat-num">4</p>
+          <p class="stat-label">Core sectors served: Conveyancing, Accountancy, Law, Recruitment.</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-num">12</p>
+          <p class="stat-label">Month minimum retainer term. Structured, sustained protection.</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-num">100%</p>
+          <p class="stat-label">Passively sourced findings before any engagement begins.</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-num">0</p>
+          <p class="stat-label">Active scans performed without a signed engagement letter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Our Approach</p>
+    <div class="two-col">
+      <div class="prose">
+        <h2>Passive first. Active only with consent.</h2>
+        <p>Before we contact any prospective client, we run a passive public-facing check using only openly available tools — MxToolbox, Shodan, HaveIBeenPwned, and crt.sh. No access is requested. No systems are touched.</p>
+        <p>If we find something worth flagging, we send a short, specific note explaining what we found. There is no obligation. There is no pitch in that first contact.</p>
+        <p>Active scanning — Nmap, Nuclei — is only ever run after a signed engagement letter and explicit written consent for the named IP ranges. This is non-negotiable and reflects our interpretation of the Computer Misuse Act 1990.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-step">Step 01</span>
+          <div class="process-body">
+            <h3>Passive Assessment</h3>
+            <p>We run public-only checks on your domain: DMARC, SPF, DKIM, open breach data, and Shodan-cached port exposure. No consent required. Fully legal.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="process-step">Step 02</span>
+          <div class="process-body">
+            <h3>Discovery Call</h3>
+            <p>A 15–20 minute Zoom call. We show you exactly what we found. You ask questions. No pressure. No jargon without an immediate plain-English explanation.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="process-step">Step 03</span>
+          <div class="process-body">
+            <h3>Signed Engagement</h3>
+            <p>A full engagement letter covering scope, liability cap, data handling, and explicit consent for active scanning. Reviewed by a solicitor. Your protection as much as ours.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="process-step">Step 04</span>
+          <div class="process-body">
+            <h3>Remediation &amp; Report</h3>
+            <p>We fix what we find: DMARC enforcement, MFA rollout, open port closure, password manager deployment. A plain-English PDF report is delivered at the end.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <span class="process-step">Step 05</span>
+          <div class="process-body">
+            <h3>12-Month Retainer</h3>
+            <p>Ongoing monthly monitoring, quarterly phishing simulations, and a compliance report your cyber insurer accepts at renewal — sustained across a structured 12-month term.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">How Contracts Are Formed</p>
+    <div class="two-col">
+      <div class="prose">
+        <h2>Clear scope. Written consent. No ambiguity.</h2>
+        <p>Every engagement begins with a signed engagement letter before any work is carried out. This letter defines the precise scope of work, the systems in scope, the limitation of liability, and explicit written consent for any active scanning activities.</p>
+        <p>Retainer engagements operate on a <strong>12-month contract term</strong>. This ensures that security coverage is sustained, monitored, and continuously improved rather than treated as a one-off exercise. The 12-month structure also aligns with most cyber liability insurance renewal cycles, making it straightforward to demonstrate ongoing compliance to your insurer.</p>
+        <p>Either party may terminate with 30 days' written notice at the natural end of a contract term. Early termination conditions are set out in full in the engagement letter.</p>
+      </div>
+      <div>
+        <div class="contract-section">
+          <h3>Contract Formation Process</h3>
+          <p><strong>1. Discovery Call</strong> — We establish scope, systems, and expectations. No commitment at this stage.</p>
+          <p><strong>2. Engagement Letter Issued</strong> — We send a full written engagement letter covering scope, liability, data handling, consent to scan, and governing law.</p>
+          <p><strong>3. Signed by Both Parties</strong> — The contract is formed only upon countersignature. Work begins after this point.</p>
+          <p><strong>4. 12-Month Retainer Term</strong> — Ongoing retainer engagements run for a minimum of 12 months, renewable by mutual agreement.</p>
+          <p><strong>5. Termination</strong> — Either party may terminate with 30 days' written notice at the end of a contract term. Full conditions are in the engagement letter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Credentials</p>
+    <div class="two-col">
+      <div class="prose">
+        <h2>Registered. Insured. Compliant.</h2>
+        <p>KIXK Systems Ltd is a registered UK Limited Company (No. 17244535) incorporated in England and Wales. We operate as an ICO-registered Data Controller, required under the Data Protection Act 2018 for any business processing personal data for direct marketing.</p>
+        <p>We carry Professional Indemnity and Cyber Liability insurance — both active before any client engagement begins. Our work is framed around NCSC Cyber Essentials, the baseline standard that UK cyber liability insurers now check at policy renewal.</p>
+      </div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">Company No.</span>
+          <span class="info-val">17244535</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Jurisdiction</span>
+          <span class="info-val">England &amp; Wales</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">ICO Registration</span>
+          <span class="info-val">Data Controller</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Insurance</span>
+          <span class="info-val">PI + Cyber Liability</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Framework</span>
+          <span class="info-val">NCSC Cyber Essentials</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Contract Term</span>
+          <span class="info-val">12 months minimum</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Contact</span>
+          <span class="info-val"><a href="mailto:nino@kixk.systems">nino@kixk.systems</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Ready to see what's exposed?</h2>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <a href="mailto:nino@kixk.systems" class="btn">Get in Touch</a>
+      <a href="https://www.linkedin.com/in/nino-cirillo-4a7951398/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-left">© 2026 KIXK Systems Ltd · ICO Registered Data Controller · All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — KIXK Systems Ltd</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f5f5f3; --grey: #888; --border: rgba(245,245,243,0.1); }
+    body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); }
+    .nav-logo { text-decoration: none; }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .page-hero { padding: 10rem 3rem 4rem; border-bottom: 1px solid var(--border); }
+    .page-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); margin-bottom: 1.5rem; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .page-hero .updated { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; color: var(--grey); margin-top: 1.5rem; }
+
+    .doc-body { max-width: 800px; padding: 5rem 3rem; }
+    .doc-section { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+    .doc-section:last-child { border-bottom: none; }
+    .doc-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 1rem; }
+    .doc-section h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .doc-section p { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.9; color: var(--grey); margin-bottom: 1rem; }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section strong { color: var(--white); font-weight: 400; }
+    .doc-section ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+    .doc-section li { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--grey); padding-left: 1.5rem; position: relative; }
+    .doc-section li::before { content: '—'; position: absolute; left: 0; color: var(--grey); }
+    .highlight-box { border: 1px solid rgba(255,255,255,0.15); padding: 1.5rem; margin: 1.5rem 0; }
+    .highlight-box p { color: var(--white) !important; }
+
+    footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
+    .footer-left { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; color: var(--grey); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .doc-body { padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-text">KIXK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-tag">Legal</p>
+    <h1>Privacy &amp;<br/>Data Handling Policy</h1>
+    <p class="updated">Last Updated: May 2026 · KIXK Systems Ltd · Company No. 17244535</p>
+  </div>
+
+  <div class="doc-body">
+
+    <div class="doc-section">
+      <p class="doc-num">Section 01</p>
+      <h2>Data Controller</h2>
+      <p>KIXK Systems Ltd ("we", "us", "our") is a Data Controller registered with the UK Information Commissioner's Office (ICO) under the Data Protection Act 2018. We process limited business contact information strictly for direct B2B marketing communications related to our digital security services.</p>
+      <div class="highlight-box">
+        <p><strong>Data Controller:</strong> KIXK Systems Ltd<br/>Company No. 17244535 · Registered in England &amp; Wales<br/>Contact: <a href="mailto:nino@kixk.systems" style="color:var(--white);">nino@kixk.systems</a></p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 02</p>
+      <h2>Lawful Basis for Processing</h2>
+      <p>Our lawful basis for processing professional contact data under UK GDPR is <strong>Legitimate Interests</strong> (Article 6(1)(f)).</p>
+      <p>Before contacting any prospective business, we conduct passive, public-facing perimeter security checks using exclusively public tools — MxToolbox, Shodan (cached data only), HaveIBeenPwned, and crt.sh. These checks do not involve accessing any private systems or requesting any consent from the target organisation.</p>
+      <p>We have conducted a Legitimate Interests Assessment (LIA) to confirm this basis and concluded that the processing does not override the interests, rights, or freedoms of the data subjects given the strictly B2B nature of all communications.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 03</p>
+      <h2>Data We Collect</h2>
+      <p>We collect only the minimum corporate contact data required to facilitate B2B communication:</p>
+      <ul>
+        <li>Full name</li>
+        <li>Corporate email address</li>
+        <li>Job title</li>
+        <li>Company name</li>
+        <li>Company domain (for passive security assessment purposes)</li>
+      </ul>
+      <p>We do not collect personal home addresses, financial data, National Insurance numbers, health information, or any other special category data as defined under UK GDPR Article 9.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 04</p>
+      <h2>How We Use Your Data</h2>
+      <p>Data collected is used solely for the following purposes:</p>
+      <ul>
+        <li>Sending targeted B2B direct marketing communications about our digital security services</li>
+        <li>Conducting passive public-facing security assessments to identify vulnerabilities relevant to your organisation</li>
+        <li>Following up with prospects who have engaged with our initial communications</li>
+        <li>Managing ongoing client relationships where an engagement has been entered into</li>
+      </ul>
+      <p>We do not sell, rent, share, or transfer your personal data to any third party for their own marketing purposes.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 05</p>
+      <h2>Data Retention &amp; Suppression</h2>
+      <ul>
+        <li>Prospects who do not respond: data retained for one active outreach campaign cycle (maximum 30 days) before permanent deletion</li>
+        <li>Prospects who request removal: data transferred to our suppression list within 24 hours of the request</li>
+        <li>Active clients: data retained for the duration of the engagement plus six years in accordance with UK limitation periods</li>
+        <li>Suppressed contacts: permanently excluded from all future outreach campaigns</li>
+      </ul>
+      <div class="highlight-box">
+        <p><strong>To request removal:</strong> Reply "remove" to any of our communications. Your data will be added to our permanent suppression list within 24 hours. Alternatively, email <a href="mailto:nino@kixk.systems" style="color:var(--white);">nino@kixk.systems</a> directly.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 06</p>
+      <h2>PECR Compliance</h2>
+      <p>All direct marketing emails we send include a clear, prominent opt-out mechanism in accordance with the Privacy and Electronic Communications Regulations 2003 (PECR). Every email includes the line: <strong>"Not relevant? Reply 'remove' and I won't contact you again."</strong></p>
+      <p>We process all removal requests within 24 hours and maintain a permanent suppression list. Suppressed email addresses and domains are never contacted again.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 07</p>
+      <h2>Your Rights</h2>
+      <p>Under UK GDPR, you have the following rights:</p>
+      <ul>
+        <li><strong>Right of access:</strong> Request a copy of the data we hold about you</li>
+        <li><strong>Right to rectification:</strong> Request correction of inaccurate data</li>
+        <li><strong>Right to erasure:</strong> Request deletion of your data</li>
+        <li><strong>Right to object:</strong> Object to our processing under Legitimate Interests</li>
+        <li><strong>Right to restriction:</strong> Request restriction of processing in certain circumstances</li>
+        <li><strong>Right to data portability:</strong> Receive your data in a structured, machine-readable format</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:nino@kixk.systems" style="color:var(--white); font-family:'DM Mono',monospace;">nino@kixk.systems</a>. We will respond within one calendar month. You also have the right to lodge a complaint with the ICO at <strong>ico.org.uk</strong>.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 08</p>
+      <h2>Security of Your Data</h2>
+      <p>We implement appropriate technical and organisational measures to protect business contact data against unauthorised access, loss, or disclosure — including encrypted storage and access controls. Client credentials obtained during active engagements are stored exclusively in a dedicated encrypted password manager and are permanently deleted at engagement termination.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 09</p>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. The "Last Updated" date at the top reflects any changes. For questions about this policy: <a href="mailto:nino@kixk.systems" style="color:var(--white); font-family:'DM Mono',monospace;">nino@kixk.systems</a></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p class="footer-left">© 2026 KIXK Systems Ltd · ICO Registered Data Controller · All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

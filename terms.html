@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — KIXK Systems Ltd</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f5f5f3; --grey: #888; --border: rgba(245,245,243,0.1); }
+    body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); }
+    .nav-logo { text-decoration: none; }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .page-hero { padding: 10rem 3rem 4rem; border-bottom: 1px solid var(--border); }
+    .page-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); margin-bottom: 1.5rem; }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+    .page-hero .updated { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; color: var(--grey); margin-top: 1.5rem; }
+
+    .doc-body { max-width: 800px; padding: 5rem 3rem; }
+    .doc-section { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+    .doc-section:last-child { border-bottom: none; }
+    .doc-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 1rem; }
+    .doc-section h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .doc-section p { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.9; color: var(--grey); margin-bottom: 1rem; }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section strong { color: var(--white); font-weight: 400; }
+    .doc-section ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin: 1rem 0; }
+    .doc-section li { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--grey); padding-left: 1.5rem; position: relative; }
+    .doc-section li::before { content: '—'; position: absolute; left: 0; color: var(--grey); }
+    .highlight-box { border: 1px solid rgba(255,255,255,0.15); padding: 1.5rem; margin: 1.5rem 0; }
+    .highlight-box p { color: var(--white) !important; }
+
+    footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
+    .footer-left { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; color: var(--grey); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .doc-body { padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-text">KIXK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-tag">Legal</p>
+    <h1>Terms of<br/>Service</h1>
+    <p class="updated">Last Updated: May 2026 · KIXK Systems Ltd · Company No. 17244535</p>
+  </div>
+
+  <div class="doc-body">
+
+    <div class="doc-section">
+      <p class="doc-num">Section 01</p>
+      <h2>Parties &amp; Agreement</h2>
+      <p>These Terms of Service ("Terms") govern the provision of digital security consultancy services by <strong>KIXK Systems Ltd</strong>, a company registered in England and Wales (Company No. 17244535), to any business or individual ("Client") that engages our services.</p>
+      <p>By entering into an engagement letter with KIXK Systems Ltd, the Client agrees to be bound by these Terms. These Terms are to be read alongside the individual engagement letter, which governs the specific scope, agreed fees, and timeframes of each engagement.</p>
+      <p>Where there is a conflict between these Terms and a signed engagement letter, the engagement letter takes precedence.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 02</p>
+      <h2>Services</h2>
+      <p>KIXK Systems Ltd provides the following categories of service to UK professional services firms:</p>
+      <ul>
+        <li><strong>Initial Security Assessment:</strong> Passive and active assessment of the Client's digital security posture, including email security (SPF, DKIM, DMARC), external port exposure, credential leak analysis, and subdomain discovery</li>
+        <li><strong>Remediation Services:</strong> Implementation of identified fixes including DMARC enforcement, MFA rollout, port closure, and password manager deployment</li>
+        <li><strong>Monthly Retainer:</strong> Ongoing monitoring, scheduled scans, quarterly phishing simulations, MFA compliance checks, and monthly compliance reporting — delivered on a 12-month contract term</li>
+        <li><strong>Client Reporting:</strong> Delivery of plain-English PDF reports suitable for cyber liability insurance purposes</li>
+      </ul>
+      <p>Active scanning (e.g. Nmap, Nuclei) is only conducted after receipt of a signed engagement letter containing explicit written consent for the specific IP ranges and systems to be scanned. No active scanning is performed prior to signed consent under any circumstances.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 03</p>
+      <h2>How Contracts Are Formed</h2>
+      <div class="highlight-box">
+        <p><strong>A binding contract is formed only upon countersignature of a written engagement letter by both parties. No verbal agreement, email exchange, or informal arrangement constitutes a binding engagement.</strong></p>
+      </div>
+      <p>The contract formation process proceeds as follows:</p>
+      <ul>
+        <li><strong>Discovery Call:</strong> An initial conversation to establish scope, systems in scope, and mutual expectations. No commitment is made at this stage.</li>
+        <li><strong>Engagement Letter Issued:</strong> KIXK Systems Ltd issues a written engagement letter covering: precise scope of work, systems and IP ranges in scope, limitation of liability, data handling obligations, explicit consent to scan, governing law, and contract term.</li>
+        <li><strong>Countersignature:</strong> The contract is formed upon receipt of the Client's countersignature. Work does not commence before this point.</li>
+        <li><strong>Onboarding:</strong> Following contract formation, a 30-minute access handover call is arranged. The Client grants temporary administrative access to the systems in scope as defined in the engagement letter.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 04</p>
+      <h2>Contract Term &amp; Renewal</h2>
+      <p>Retainer engagements operate on a <strong>12-month minimum contract term</strong> commencing on the date of countersignature of the engagement letter.</p>
+      <p>The 12-month term is structured to ensure that security coverage is sustained, monitored, and continuously improved across a full annual cycle. This aligns with most UK cyber liability insurance renewal periods, enabling clients to demonstrate continuous, documented security posture improvement to their insurer.</p>
+      <p>At the end of each 12-month term, the engagement will automatically continue on a rolling monthly basis unless either party provides written notice of termination at least 30 days before the end of the current term.</p>
+      <p>KIXK Systems Ltd will issue a written reminder no fewer than 60 days before the end of the initial 12-month term, inviting the Client to confirm renewal or provide notice of termination.</p>
+      <p>Initial setup engagements are one-off fixed-scope engagements and are not subject to the 12-month retainer term. Once work has commenced on an initial setup engagement, the agreed fee becomes payable in full.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 05</p>
+      <h2>Fees &amp; Payment</h2>
+      <p>Fees for all engagements are agreed and confirmed in the individual engagement letter prior to contract formation. No work is undertaken without a signed engagement letter confirming the agreed fee structure.</p>
+      <p>Invoices are issued via our business invoicing platform and are payable within 14 days of the invoice date. Late payment may result in suspension of retainer services until outstanding amounts are settled.</p>
+      <p>KIXK Systems Ltd reserves the right to adjust retainer fees at the point of contract renewal with no fewer than 30 days' written notice. The Client may decline renewal if revised terms are not acceptable.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 06</p>
+      <h2>Client Obligations</h2>
+      <p>To enable KIXK Systems Ltd to deliver services effectively, the Client agrees to:</p>
+      <ul>
+        <li>Provide temporary administrator-level access to relevant systems during the onboarding access handover call, as specified in the engagement letter</li>
+        <li>Confirm in writing the IP ranges, domains, and systems that are within scope for active scanning</li>
+        <li>Notify KIXK Systems Ltd promptly of any material changes to their IT infrastructure, personnel, or systems that may affect the scope of services</li>
+        <li>Not share findings, reports, or technical outputs produced by KIXK Systems Ltd with third parties without prior written consent, except where required by law or regulatory obligation</li>
+        <li>Store credentials and access details provided to KIXK Systems Ltd securely and revoke access promptly upon engagement termination</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 07</p>
+      <h2>Scope &amp; Out-of-Scope Findings</h2>
+      <p>KIXK Systems Ltd will only access, scan, or assess systems explicitly listed in the signed engagement letter. If, in the course of performing agreed services, KIXK Systems Ltd discovers a vulnerability outside the agreed scope, we will <strong>report the finding to the Client in writing but will not investigate or exploit it further</strong> without explicit written authorisation to extend scope.</p>
+      <p>The Client acknowledges that security assessments are point-in-time activities and that new vulnerabilities may emerge after delivery. KIXK Systems Ltd does not guarantee the ongoing security of any system beyond the scope of active monitoring services included in the retainer.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 08</p>
+      <h2>Limitation of Liability</h2>
+      <div class="highlight-box">
+        <p><strong>Our total liability to you in connection with any engagement shall not exceed the total fees paid by you to KIXK Systems Ltd in the three months immediately preceding the event giving rise to the claim.</strong></p>
+      </div>
+      <p>KIXK Systems Ltd shall not be liable for any indirect, consequential, or special losses including but not limited to loss of profits, loss of business, business interruption, or reputational damage, even if we have been advised of the possibility of such losses. Nothing in these Terms excludes liability for death or personal injury caused by negligence, or fraud.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 09</p>
+      <h2>Termination</h2>
+      <p>Either party may terminate a retainer engagement by providing <strong>30 days' written notice</strong> prior to the end of the current 12-month contract term. Termination mid-term is not permitted except in the circumstances set out below.</p>
+      <p>KIXK Systems Ltd may terminate an engagement with immediate effect if:</p>
+      <ul>
+        <li>The Client fails to pay outstanding invoices within 14 days of the due date</li>
+        <li>The Client requests activities outside the agreed scope that would violate applicable law</li>
+        <li>The Client provides materially false information about their systems or authority to engage our services</li>
+      </ul>
+      <p>Upon termination, all access credentials held by KIXK Systems Ltd will be permanently deleted and confirmed in writing to the Client within 5 business days.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 10</p>
+      <h2>Confidentiality &amp; Intellectual Property</h2>
+      <p>Both parties agree to maintain strict confidentiality with respect to all information disclosed in connection with an engagement. KIXK Systems Ltd will not disclose any client-specific findings, reports, or access credentials to any third party without prior written consent, except where required by law.</p>
+      <p>Report templates and methodology documentation developed by KIXK Systems Ltd remain our intellectual property. The specific findings and recommendations contained within a delivered report belong to the Client.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 11</p>
+      <h2>Governing Law</h2>
+      <p>These Terms and any engagement entered into pursuant to them shall be governed by and construed in accordance with the laws of <strong>England and Wales</strong>. Any dispute shall first be subject to good-faith negotiation. If unresolved within 30 days of written notice, either party may refer the matter to the courts of England and Wales, to whose exclusive jurisdiction both parties submit.</p>
+    </div>
+
+    <div class="doc-section">
+      <p class="doc-num">Section 12</p>
+      <h2>Contact</h2>
+      <p>For any questions regarding these Terms, or to enter into an engagement:</p>
+      <div class="highlight-box">
+        <p><strong>KIXK Systems Ltd</strong><br/>Company No. 17244535 · Registered in England &amp; Wales<br/>Email: <a href="mailto:nino@kixk.systems" style="color:var(--white);">nino@kixk.systems</a><br/>LinkedIn: <a href="https://www.linkedin.com/in/nino-cirillo-4a7951398/" target="_blank" rel="noopener" style="color:var(--white);">linkedin.com/in/nino-cirillo-4a7951398</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p class="footer-left">© 2026 KIXK Systems Ltd · ICO Registered Data Controller · All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

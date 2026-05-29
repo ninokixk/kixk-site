@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIXK Systems Ltd — Digital Security for UK Professional Services</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f5f5f3; --grey: #888; --border: rgba(245,245,243,0.1); }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); }
+    .nav-logo { text-decoration: none; }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 3rem 5rem; position: relative; border-bottom: 1px solid var(--border); }
+    .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+    .hero-headline { font-size: clamp(3rem, 8vw, 7rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; max-width: 900px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+    .hero-headline em { font-style: normal; -webkit-text-stroke: 1px var(--white); color: transparent; }
+    .hero-sub { margin-top: 3rem; display: flex; gap: 4rem; align-items: flex-end; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+    .hero-desc { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.8; color: var(--grey); max-width: 380px; }
+    .hero-cta { display: inline-block; padding: 1rem 2.5rem; background: var(--white); color: var(--black); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s, outline 0.2s; white-space: nowrap; }
+    .hero-cta:hover { background: transparent; color: var(--white); outline: 1px solid var(--white); }
+
+    .ticker-wrap { overflow: hidden; border-bottom: 1px solid var(--border); padding: 0.9rem 0; }
+    .ticker { display: flex; white-space: nowrap; animation: ticker 30s linear infinite; }
+    .ticker-item { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); padding: 0 3rem; }
+    .ticker-item::after { content: '—'; margin-left: 3rem; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    section { padding: 6rem 3rem; border-bottom: 1px solid var(--border); }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
+    .section-label::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--grey); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; }
+    .service-card { padding: 2.5rem; border: 1px solid var(--border); transition: background 0.2s; }
+    .service-card:hover { background: rgba(255,255,255,0.03); }
+    .service-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; color: var(--grey); margin-bottom: 1.5rem; }
+    .service-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .service-body { font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 300; line-height: 1.8; color: var(--grey); }
+
+    .niches { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .niche-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); padding: 0.6rem 1.2rem; border: 1px solid var(--border); transition: border-color 0.2s, background 0.2s; }
+    .niche-tag:hover { border-color: var(--white); background: rgba(255,255,255,0.04); }
+
+    .who-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .who-left h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 2rem; }
+    .who-left p { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.9; color: var(--grey); margin-bottom: 2rem; }
+
+    .engagement-list { display: flex; flex-direction: column; gap: 0; }
+    .engagement-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 1.25rem 0; border-bottom: 1px solid var(--border); gap: 2rem; }
+    .engagement-row:last-child { border-bottom: none; }
+    .engagement-label { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--grey); }
+    .engagement-val { font-size: 0.9rem; font-weight: 700; text-align: right; }
+
+    .compliance-bar { padding: 3rem; display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+    .compliance-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
+    .compliance-items { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .compliance-item { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.2); }
+
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .contact-left h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 1.5rem; }
+    .contact-left p { font-family: 'DM Mono', monospace; font-size: 0.8rem; font-weight: 300; line-height: 1.9; color: var(--grey); }
+    .contact-right { display: flex; flex-direction: column; gap: 0; }
+    .contact-item { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-item-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
+    .contact-item a, .contact-item span { font-size: 1rem; font-weight: 600; color: var(--white); text-decoration: none; transition: opacity 0.2s; }
+    .contact-item a:hover { opacity: 0.6; }
+
+    footer { padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-left { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; color: var(--grey); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.65rem; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { padding: 0 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .who-layout, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .compliance-bar { padding: 2rem 1.5rem; gap: 2rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <span class="nav-logo-text">KIXK</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-tag">UK Cyber Security · Professional Services</p>
+    <h1 class="hero-headline">Security<br/><em>Baseline.</em><br/>Precisely.</h1>
+    <div class="hero-sub">
+      <p class="hero-desc">Specialist digital security for UK law firms, conveyancers, accountancy practices, and recruitment agencies. We close the gaps your IT company doesn't see.</p>
+      <a class="hero-cta" href="about.html">Learn More</a>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item">DMARC Enforcement</span>
+      <span class="ticker-item">Email Spoofing Protection</span>
+      <span class="ticker-item">NCSC Cyber Essentials</span>
+      <span class="ticker-item">UK GDPR Aligned</span>
+      <span class="ticker-item">MFA Deployment</span>
+      <span class="ticker-item">Credential Leak Audit</span>
+      <span class="ticker-item">Perimeter Defence</span>
+      <span class="ticker-item">Monthly Compliance Reports</span>
+      <span class="ticker-item">DMARC Enforcement</span>
+      <span class="ticker-item">Email Spoofing Protection</span>
+      <span class="ticker-item">NCSC Cyber Essentials</span>
+      <span class="ticker-item">UK GDPR Aligned</span>
+      <span class="ticker-item">MFA Deployment</span>
+      <span class="ticker-item">Credential Leak Audit</span>
+      <span class="ticker-item">Perimeter Defence</span>
+      <span class="ticker-item">Monthly Compliance Reports</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <p class="section-label">What We Do</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <h3 class="service-title">Email Security Audit</h3>
+        <p class="service-body">We assess and enforce SPF, DKIM, and DMARC records across your domain. Misconfigured email is the entry point for invoice fraud and impersonation attacks.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <h3 class="service-title">Perimeter Defence</h3>
+        <p class="service-body">External port scanning and asset discovery to identify exposed remote access services — RDP, FTP, SMB — before attackers do. Run post-consent from a hardened VPS.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <h3 class="service-title">Credential Leak Audit</h3>
+        <p class="service-body">Domain-level breach analysis via HaveIBeenPwned and DeHashed. We identify which staff credentials are circulating in known breach datasets and act on them.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">04</p>
+        <h3 class="service-title">Monthly Retainer</h3>
+        <p class="service-body">Ongoing monitoring, quarterly phishing simulations, MFA compliance checks, and a one-page PDF report your insurer will accept. Delivered on a 12-month engagement basis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="who-layout">
+      <div class="who-left">
+        <p class="section-label">Who We Serve</p>
+        <h2>Built for UK<br/>Professional<br/>Services.</h2>
+        <p>We work exclusively with small-to-mid sized UK firms in regulated sectors — the organisations with the most to lose from a single compromised email chain.</p>
+        <p>No generalist IT support. No junior analysts. You work directly with us.</p>
+      </div>
+      <div class="who-right">
+        <p class="section-label">Sectors</p>
+        <div class="niches">
+          <span class="niche-tag">Conveyancing</span>
+          <span class="niche-tag">Accountancy</span>
+          <span class="niche-tag">Law Firms</span>
+          <span class="niche-tag">Recruitment</span>
+          <span class="niche-tag">Estate Agents</span>
+        </div>
+        <br/><br/>
+        <p class="section-label">Engagement</p>
+        <div class="engagement-list">
+          <div class="engagement-row">
+            <span class="engagement-label">Initial Setup</span>
+            <span class="engagement-val">One-off fixed engagement</span>
+          </div>
+          <div class="engagement-row">
+            <span class="engagement-label">Ongoing Retainer</span>
+            <span class="engagement-val">12-month contract term</span>
+          </div>
+          <div class="engagement-row">
+            <span class="engagement-label">Insurance Coverage</span>
+            <span class="engagement-val">PI + Cyber Liability</span>
+          </div>
+          <div class="engagement-row">
+            <span class="engagement-label">Contract Formation</span>
+            <span class="engagement-val">Signed engagement letter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="compliance-bar">
+    <span class="compliance-label">Frameworks</span>
+    <div class="compliance-items">
+      <span class="compliance-item">NCSC Cyber Essentials</span>
+      <span class="compliance-item">UK GDPR</span>
+      <span class="compliance-item">Data Protection Act 2018</span>
+      <span class="compliance-item">PECR 2003</span>
+      <span class="compliance-item">Computer Misuse Act 1990</span>
+    </div>
+  </div>
+
+  <section id="contact">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <p class="section-label">Contact</p>
+        <h2>Start with<br/>a conversation.</h2>
+        <p>We run a passive public check on your domain before we reach out — no access required, no obligation. Get in touch and we'll show you what we found.</p>
+      </div>
+      <div class="contact-right">
+        <div class="contact-item">
+          <span class="contact-item-label">Email</span>
+          <a href="mailto:nino@kixk.systems">nino@kixk.systems</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/nino-cirillo-4a7951398/" target="_blank" rel="noopener">Nino Cirillo</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Registered Company</span>
+          <span>No. 17244535 — England &amp; Wales</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-left">© 2026 KIXK Systems Ltd · ICO Registered Data Controller · All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms of Service</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
