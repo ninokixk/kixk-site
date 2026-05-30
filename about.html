@@ -20,6 +20,14 @@
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.25rem; flex-direction: column; gap: 5px; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; }
 
     .page-hero { padding: 10rem 3rem 4rem; border-bottom: 1px solid var(--border); }
     .page-tag { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.1s forwards; }
@@ -76,16 +84,26 @@
     .footer-links a:hover { color: var(--white); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      .page-tag, .page-hero h1 { animation: none; opacity: 1; }
+    }
 
     @media (max-width: 768px) {
       nav { padding: 1.25rem 1.5rem; }
       .nav-links { display: none; }
+      .nav-toggle { display: flex; }
       .page-hero { padding: 8rem 1.5rem 3rem; }
       section { padding: 4rem 1.5rem; }
       .two-col { grid-template-columns: 1fr; gap: 3rem; }
       .stat-grid { grid-template-columns: 1fr 1fr; }
-      .cta-band { padding: 3rem 1.5rem; }
-      footer { padding: 2rem 1.5rem; }
+      .cta-band { padding: 3rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .process-item { grid-template-columns: 3rem 1fr; gap: 1.25rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .stat-grid { grid-template-columns: 1fr; }
+      .contract-section { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -100,7 +118,15 @@
       <li><a href="index.html#services">Services</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('open'); document.getElementById('mobileMenu').classList.toggle('open');">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">About</a>
+    <a href="index.html#services" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Services</a>
+    <a href="index.html#contact" onclick="document.getElementById('mobileMenu').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Contact</a>
+  </div>
 
   <div class="page-hero">
     <p class="page-tag">About the Practice</p>
